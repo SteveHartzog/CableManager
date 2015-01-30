@@ -1,0 +1,1920 @@
+﻿/*<editor-folding desc="Html Elements (Global)">*/
+html { height: 100%; }
+
+body
+{
+    font-family: "Helvetica Neue" ,Helvetica,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #cde3f1 url(../img/bg.png) repeat-x;
+    font-size: 14px;
+    line-height: 20px;
+    height:100%;
+    width:100%;
+}
+
+h3
+{
+    line-height: 30px;
+    font-size: 24.5px;
+    font-weight:bold;
+}
+
+th
+{
+    white-space: nowrap;
+}
+
+/*</editor-folding>*/
+
+/*<editor-fold desc="Identities (Positioning, Unique)">*/
+#AddButton
+{
+    float: left;
+    position: relative;
+    /*top: -52px;*/
+    left: 15px;
+}
+
+#AddOnChannelPopUp
+{
+    width: 150px;
+    height: auto;
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid #e5e6de;
+}
+
+#AddOnChannelTop
+{
+    width: 150px;
+    height: 20px;
+    text-align: center;
+    background-color: #027db8;
+    color: white;
+}
+
+#addonContent
+{
+    margin: 10px;
+}
+
+#AreYouSureCard
+{
+    position: relative;
+    right: 35px;
+    top: 6px;
+}
+
+#AreYouSureRow
+{
+    position: relative;
+    right: 20px;
+    top: 2px;
+    float: right;
+}
+
+#availabeLicensesPopUp
+{
+    width: auto;
+    height: 20px;
+    display: none;
+    position: absolute;
+    color: #666666;
+    padding: 5px;
+    font-size: 10px;
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid #e5e6de;
+}
+
+#bigLogo
+{
+    /*padding-top: 10px;*/
+    height:40px;
+}
+
+#borderShow
+{
+    display: none;
+}
+
+/*#bottomBG
+{
+    position: relative;
+    top: -7px;
+    left: 2px;
+    width: 924px;
+    height: 2px;
+    background-color: #d8dadb;
+}*/
+
+#bottomBtnsPos
+{
+    margin-bottom: 125px;
+}
+
+#channelCancel
+{
+    position: relative;
+    right: 20px;
+    top: 1px;
+    float: right;
+    cursor: pointer;
+}
+
+#channelInput
+{
+    float: left;
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+#channelInputSize
+{
+    width: 35px;
+    height: 10px;
+    border: 1px solid #0e7bb0;
+}
+
+#changeChannelNumber
+{
+    display: none;
+}
+
+#ChannelsPopupWarning
+{
+    position: absolute;
+    display: none;
+    width: 200px;
+    height: auto;
+    color: #666666;
+    border: 1px solid #e5e6de;
+    font-size: 10px;
+    background-color: white;
+    padding: 2px;
+}
+
+#channelSave
+{
+    position: relative;
+    right: 30px;
+    top: 1px;
+    float: right;
+    cursor: pointer;
+}
+
+#commonViewingArea
+{
+    position: relative;
+    top: 30px;
+}
+
+#DefaultNumber
+{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid #e5e6de;
+    display: none;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #666666;
+}
+
+#Footer {
+    height:50px;
+    width:925px;
+    border-top: 1px solid #027db8;
+}
+
+#Footer span {
+    width: 928px;
+    display:block;
+    text-align: center;
+}
+
+#FullTextPopUp
+{
+    width: 100px;
+    height: auto;
+    display: none;
+    position: absolute;
+    color: #666666;
+    padding: 5px;
+    font-size: 10px;
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid #e5e6de;
+}
+
+#GroupLineupAvailableLicensesPopUp
+{
+    position: absolute;
+    width: 275px;
+    height: auto;
+    background-color: white;
+    display: none;
+    border: 1px solid #e5e6de;
+}
+
+#GroupLineupAvailableLicensesPopUpContent
+{
+    color: #333333;
+    font-size: 11px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+#GroupLineupAvailableLicensesPopUpTop
+{
+    width: 275px;
+    height: 23px;
+    color: white;
+    background-color: #027db8;
+    text-align: center;
+    padding-top: 4px;
+}
+
+#lightBoxGroupErrorMessage
+{
+    float: left;
+    margin-left: 60px;
+    margin-top: 10px;
+    color: red;
+    font-size: 11px;
+}
+
+#lightBoxMiddleContent
+{
+    width: 100%;
+    height: 38px;
+    background-color: #f7f6f1;
+    border-left: 1px solid #e5e6de;
+    border-right: 1px solid #e5e6de;
+    border-bottom: 1px solid #e5e6de;
+}
+
+#LightBoxSearch
+{
+    float: right;
+    position: relative;
+    top: 6px;
+    right: 8px;
+    width: 156px;
+    height: 25px;
+    background: url('../img/lightBoxSearchBg.png') no-repeat;
+}
+
+#LightBoxSearchField
+{
+    background: none;
+    border-style: none;
+    outline: none;
+    width: 130px;
+    height: 17px;
+    position: relative;
+    left: 5px;
+    top: 2px;
+    font-size: 12px;
+    color: grey;
+}
+
+#lightboxTopLine
+{
+    width: 1px;
+    height: 63px;
+    float: left;
+}
+
+#lightboxTopMiddle
+{
+    width: 813px;
+    height: 63px;
+    background: url(../img/lightBoxLineMiddle.png) repeat-x;
+    float: left;
+}
+
+#lineupPosition1
+{
+    position: relative;
+    top: -100px;
+}
+
+#LineupAvailableLicensesPopUp
+{
+    position: absolute;
+    width: 275px;
+    height: auto;
+    background-color: white;
+    display: none;
+    border: 1px solid #e5e6de;
+}
+
+#LineupAvailableLicensesPopUpTop
+{
+    width: 275px;
+    height: 23px;
+    color: white;
+    background-color: #027db8;
+    text-align: center;
+    padding-top: 4px;
+}
+
+#LineupAvailableLicensesPopUpContent
+{
+    color: #333333;
+    font-size: 11px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+#lineupPosition2
+{
+    position: relative;
+    top: -90px;
+}
+
+#LoginBody
+{
+    position: relative;
+    left: -7px;
+    width: 381px;
+    height: 162px;
+    background-image: url(../img/TWC_Login_Body_Bg.png);
+}
+
+#LoginErrorMessage
+{
+    float: right;
+    margin: 5px 10px;
+    color: white;
+    font-weight: bold;
+}
+
+#LoginHead
+{
+    width: 367px;
+    height: 30px;
+    background-image: url(../img/loginTopBg.png);
+}
+
+#loginInputs
+{
+    position: relative;
+    top: 25px;
+    left: 40px;
+}
+
+
+#MainMenuContainer
+{
+    /*height:82px;*/
+}
+
+#MainView
+{
+    height:100%;
+    width:928px;
+    display:block;
+}
+
+#mainContainer
+{
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#menu
+{
+    padding-top: 10px;
+}
+
+#menuLeftBG
+{
+    float: left;
+    width: 4px;
+    height: 58px;
+    background-image: url(../img/menyBgLeftSide.png);
+}
+
+#menuMiddleBG
+{
+    float: left;
+    width: 920px;
+    height: 58px;
+    background: url(../img/menyBgMiddle.png) repeat-x;
+}
+
+#menuRightBG
+{
+    float: left;
+    width: 4px;
+    height: 58px;
+    background-image: url(../img/menyBgRightSide.png);
+}
+
+.menuSelected
+{
+    width: 102px;
+    height: 52px;
+    background-image: url(../img/selected.png);
+}
+
+#middleStrip
+{
+    position: relative;
+    top: -4px;
+    width: 928px;
+    height: 38px;
+    /*background: url(../img/stripeBg.png) repeat-y ;*/
+    background-color: #0094de;
+}
+
+#NextPage
+{
+    float: right;
+    background-image: url(../img/nextPageButton.png);
+    height: 25px;
+    width: 25px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+#NoSearchResult
+{
+    position: relative;
+    left: 32px;
+    top: 20px;
+    color: #027db8;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#NoUser
+{
+    position: relative;
+    right: 5px;
+    top: 2px;
+    cursor: pointer;
+}
+
+#PageElement
+{
+    float: left;
+}
+
+#pages
+{
+    float: right;
+    margin-right: 15px;
+    width: 400px;
+}
+
+#No
+{
+    position: relative;
+    right: 10px;
+    top: 4px;
+    float: right;
+    cursor: pointer;
+}
+
+#pageTotal
+{
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+    color: #027db8;
+    margin-right: 20px;
+    position: relative;
+    top: -5px;
+}
+
+#Position2
+{
+    position: relative;
+    top: -50px;
+}
+
+#Position3
+{
+    position: relative;
+    top: -40px;
+}
+
+#PositionUser1
+{
+    position: relative;
+    top: 88px;
+}
+
+#PositionUser2
+{
+    position: relative;
+    top: -70px;
+}
+
+#privateViewingArea
+{
+    position: relative;
+    top: -7px;
+}
+
+#previousPage
+{
+    float: right;
+    background-image: url('../img/previusPageButton.png');
+    height: 25px;
+    width: 25px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+#publicViewingArea
+{
+    position: relative;
+    top: 10px;
+}
+
+#reloadSymbol
+{
+    float: left;
+    margin-left: 5px;
+    margin-top: 1px;
+}
+
+#RemoveDialog
+{
+    display: none;
+}
+
+#resetPassword
+{
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+#search
+{
+    float: right;
+    position: relative;
+    top: 6px;
+    right: 15px;
+    width: 166px;
+    height: 30px;
+    background: url('../img/searchBG.png') no-repeat;
+}
+
+#searchField
+{
+    background: none;
+    border-style: none;
+    outline: none;
+    width: 138px;
+    height: 30px;
+    position: relative;
+    left: 5px;
+    top: 0;
+    font-size: 12px;
+    color: grey;
+}
+
+#SectionHeader
+{
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
+    color: #027db8;
+    font-size: 18px;
+}
+
+#services
+{
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+
+#LoginMainContainer
+{
+    height:35px;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*margin-top: 40px;*/
+    /*margin-left: 280px;*/
+}
+
+#LoginToolbar {
+    margin-right: 15px;
+    margin-top: 10px;
+    height:50px;
+    /*30px;*/
+}
+
+/*#signIn*/
+/*{*/
+    /*margin-right: 15px;*/
+    /*margin-top: 10px;*/
+/*}*/
+.loginLabel
+ {
+     /*float: left;*/
+     color: #aeb0b3;
+     /*font-size: 12px;*/
+     /*position: relative;*/
+ }
+
+.loginDropdown {
+    list-style:none;
+}
+.loginText
+{
+    float: left;
+    color: #078cc2;
+    font-size: 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    list-style:none;
+}
+
+.loginPopover {
+    padding:7px;
+    width:250px;
+}
+
+/*#signeesDetailPopUp*/
+/*{*/
+/*width: 275px;*/
+/*height: 118px;*/
+/*background-image: url(../img/signtOutBg.png);*/
+/*position: absolute;*/
+/*padding: 10px;*/
+/*z-index: 100;*/
+/*top:25px;*/
+/*}*/
+
+/*#signeesDetailPopUpTopText*/
+/*{*/
+    /*color: #727273;*/
+    /*font-size: 12px;*/
+    /*margin-left: 5px;*/
+    /*font-weight: bold;*/
+/*}*/
+
+/*#signeesDetailPopUpTopUserNameText*/
+/*{*/
+    /*color: #727273;*/
+    /*font-size: 12px;*/
+    /*margin-left: 5px;*/
+/*}*/
+
+/*#signeesDetailPopUpBottom*/
+/*{*/
+    /*position: relative;*/
+    /*top: 20px;*/
+/*}*/
+
+
+#signout
+{
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+}
+
+
+
+/*.signee a:hover*/
+/*{*/
+/*color: #078cc2;*/
+/*}*/
+
+/*.signeeBorder*/
+/*{*/
+/*border-bottom: 1px solid #078cc2;*/
+/*margin-top: -5px;*/
+/*}*/
+
+
+#step1
+{
+    z-index: 4;
+}
+
+#step2
+{
+    z-index: 3;
+    position: relative;
+    left: -28px;
+}
+
+#step3
+{
+    z-index: 2;
+    position: relative;
+    left: -57px;
+}
+
+#step4
+{
+    z-index: 1;
+    position: relative;
+    left: -87px;
+}
+
+#tableMain
+{
+    position: relative;
+    left: 2px;
+    width: 921px;
+}
+
+#TotalUsers
+{
+    position: absolute;
+    top: 420px;
+    left: 30px;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#UserAvailableLicensesPopUp
+{
+    position: absolute;
+    width: 275px;
+    height: auto;
+    background-color: white;
+    display: none;
+    border: 1px solid #e5e6de;
+}
+
+#UserAvailableLicensesPopUpContent
+{
+    color: #333333;
+    font-size: 11px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+#UserAvailableLicensesPopUpTop
+{
+    width: 275px;
+    height: 23px;
+    color: white;
+    background-color: #027db8;
+    text-align: center;
+    padding-top: 4px;
+}
+
+#UserGroupAvailableLicensesPopUp
+{
+    position: absolute;
+    width: 275px;
+    height: auto;
+    background-color: white;
+    display: none;
+    border: 1px solid #e5e6de;
+}
+
+#UserGroupAvailableLicensesPopUpContent
+{
+    color: #333333;
+    font-size: 11px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+#UserGroupAvailableLicensesPopUpTop
+{
+    width: 275px;
+    height: 23px;
+    color: white;
+    background-color: #027db8;
+    text-align: center;
+    padding-top: 4px;
+}
+
+#UserPopupWarning, #LineupPopupWarning, #ChannelsPopupWarning, #AddOnChannelsUserPopupWarning
+{
+    position: absolute;
+    display: none;
+    width: 300px;
+    height: auto;
+    color: #666666;
+    border: 1px solid #e5e6de;
+    font-size: 10px;
+    background-color: white;
+    padding: 2px;
+}
+
+#viewingArea
+{
+    position: relative;
+    left: 20px;
+}
+
+#warningTop
+{
+    height: 20px;
+    text-align: center;
+    background-color: #027db8;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+#wrapper
+{
+    position: relative;
+    top: -5px;
+    /*width: 925px;*/
+    /*left: -1px;*/
+    /*height: 100%;*/
+    background:white;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    /*background: url('../img/mainMiddleBG2.png') repeat-y;*/
+}
+
+#Yes
+{
+    position: relative;
+    right: 20px;
+    top: 4px;
+    float: right;
+    cursor: pointer;
+}
+
+#YesUser
+{
+    position: relative;
+    right: 10px;
+    top: 2px;
+    cursor: pointer;
+}
+/*</editor-fold>*/
+
+/*<editor-fold desc="Classes (Style, Composition)">*/
+.adjustVertical
+{
+    position: relative;
+    top: 15px;
+}
+
+.ajax-loader {
+
+    width: 20px;
+    height: 20px;
+}
+
+.AlingPageText
+{
+    position: relative;
+    top: 2px;
+}
+
+.alternateColor
+{
+    background-color: #f7f6f1;
+    border: 1px solid #e5e6de;
+    height: 27px;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+}
+
+.alternateColor:hover, .normalColor:hover {
+    background-color: #2fa9dd;
+    border: 1px solid #999999;
+    color: #ffffff;
+}
+.selectedItem, .selectedItem:hover {
+    background-color: #2fa9dd !important;
+    border: 1px solid #999999 !important;
+    color: #ffffff;
+}
+.barsContainer
+{
+    padding-left: 18px;
+    padding-top: 10px;
+}
+
+.beigeColor
+{
+    color: #f7f6f1;
+}
+
+.blueBar
+{
+    position: absolute;
+    width: 748px;
+    height: 16px;
+    background-color: #0890c4;
+}
+
+.changeChannelNumberSettings
+{
+    width: 920px;
+    height: 24px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    left: 3px;
+    color: white;
+}
+
+.chartColorExplanation
+{
+    padding-right: 24px;
+    position: relative;
+    top: 10px;
+    float: right;
+    color: #333333;
+    font-size: 11px;
+}
+
+.chartsBg
+{
+    width: 784px;
+    height: auto;
+    background: url('../img/chartsBg.png') repeat-y;
+}
+
+.chartsBgContainer
+{
+    float: left;
+    margin-top: 7px;
+}
+
+.chartsBgSmallContainer
+{
+    float: left;
+    margin-left: 7px;
+    margin-top: 7px;
+}
+
+.chartsBottom
+{
+    width: 784px;
+    height: 2px;
+    background-image: url('../img/chartsBottom.png');
+}
+
+.chartsContainer
+{
+    padding: 24px;
+}
+
+.chartsHeader
+{
+    color: #333333;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.chartsSmallBg
+{
+    width: 86px;
+    height: auto;
+    background: url('../img/chartsSmallBg.png') repeat-y;
+}
+
+.chartsSmallBottom
+{
+    width: 86px;
+    height: 2px;
+    background-image: url('../img/chartsSmallBottom.png');
+}
+
+.chartViewingArea
+{
+    font-size: 15px;
+    color: #027db8;
+    padding-left: 24px;
+    position: relative;
+    top: 25px;
+}
+
+.checkboxSpacing
+{
+    padding-left: 43px;
+    text-align: left;
+}
+
+.ChildBarsContainer
+{
+    padding-left: 108px;
+    padding-top: 10px;
+}
+
+.ChildBlueBar
+{
+    position: absolute;
+    width: 657px;
+    height: 16px;
+    background-color: #0890c4;
+}
+
+.ChildDarkGreyBar
+{
+    position: absolute;
+    width: 657px;
+    height: 16px;
+    background-color: #686f73;
+}
+
+.ChildGreyBar
+{
+    position: absolute;
+    width: 657px;
+    height: 16px;
+    background-color: #a3aaaa;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.darkGreyBar
+{
+    position: absolute;
+    width: 748px;
+    height: 16px;
+    background-color: #686f73;
+}
+
+.dropDown
+{
+    position: relative;
+    left: 20px;
+    top: 10px;
+}
+
+.ElementNormal
+{
+    float: left;
+    margin-left: 8px;
+    color: #027db8;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ElementShosen
+{
+    float: left;
+    margin-left: 8px;
+    color: #027db8;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid #a5a5a5;
+    width: 17px;
+    height: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.errorMessageStyle
+{
+    position: absolute;
+    color: red;
+    font-size: 11px;
+}
+
+.FloatLeft
+{
+    float: left;
+}
+
+.floatOptions
+{
+    position: relative;
+    right: 80px;
+    top: 1px;
+    float: right;
+    margin-left: 20px;
+}
+
+.FloatRight
+{
+    float: right;
+}
+
+.footer
+{
+    padding-left: 10px;
+}
+
+.greyBar
+{
+    position: absolute;
+    width: 748px;
+    height: 16px;
+    background-color: #a3aaaa;
+}
+
+.greyedOut
+{
+    opacity: .3;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+/*override of the font-awesome always on sort icon*/
+.icon-sort {
+    display:none;
+}
+
+.iconStyle
+{
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.inputStyles
+{
+    font-weight: bold;
+    color: #666666;
+    font-size: 13px;
+    margin-bottom:15px;
+}
+
+.leftSpacing
+{
+    padding-left: 27px;
+    text-align: left;
+}
+
+.leftSpacing2
+{
+    padding-left: 10px;
+    text-align: left;
+}
+
+.leftSpacing3
+{
+    padding-left: 12px;
+    text-align: left;
+}
+
+.LicenseOverViewMenuStyle
+{
+    width: 140px;
+    height: 52px;
+    float: left;
+    padding-top: 3px;
+}
+
+.LicenseOverViewMenuTextStyle
+{
+    width: 140px;
+    height: 52px;
+    color: white;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 17px;
+    text-decoration: none;
+}
+
+.LicenseOverViewSelected
+{
+    width: 140px;
+    height: 52px;
+    background-image: url(../img/selected3.png);
+}
+
+.licenseValue
+{
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    top: -2px;
+    padding-right: 5px;
+}
+
+.lightBoxBtnFloatLeft
+{
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.lightBoxBtnFloatRight
+{
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.lightBoxBtnFloatRight2
+{
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.lightBoxHeader
+{
+    font-size: 22px;
+    color: #ffffff;
+    position: relative;
+    top: 12px; /*23px;*/
+    right: 16px; /*30px;*/
+}
+
+.LightBoxTableHeader
+{
+    height: 27px;
+    background-color: #2fa9dd;
+    border: 1px solid #e5e6de;
+    color: #ffffff;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+}
+
+.lightBoxTableMain
+{
+    width: 775px;
+}
+
+.line
+{
+    position: relative;
+    top: 3px;
+    float: left;
+}
+
+.LoginStyle
+{
+    position: relative;
+    top: 5px;
+    left: 15px;
+    color: white;
+}
+
+.MasterChannelListMenuStyle
+{
+    width: 163px;
+    height: 52px;
+    float: left;
+    padding-top: 3px;
+}
+
+.MasterChannelListSelected
+{
+    width: 163px;
+    height: 52px;
+    background-image: url(../img/selected2.png);
+}
+
+.MasterChanelMenuTextStyle
+{
+    width: 163px;
+    height: 52px;
+    color: white;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 17px;
+    text-decoration: none;
+}
+
+.masterListFloatLeft
+{
+    position: relative;
+    float: left;
+    top: -52px;
+    margin-left: 18px;
+}
+
+.masterListOptions
+{
+    width: auto;
+    height: 25px;
+    border-radius: 0;
+    font-size: 12px;
+    color: #666666;
+}
+
+.menuStyle
+{
+    width: 102px;
+    height: 52px;
+    float: left;
+    padding-top: 3px;
+}
+
+.MenuTextStyle
+{
+    width: 102px;
+    height: 52px;
+    color: white;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 17px;
+}
+
+/*bootstrap*/
+.modal {
+    display: block;
+}
+.modal-dialog {
+    margin-top:-30px;
+}
+.modal-body:before,
+.modal-body:after {
+    display: table;
+    content: " ";
+}
+.modal-header {
+    padding: 9px 15px;
+    /*border-bottom: 1px solid #eee;*/
+}
+.modal-header:before,
+.modal-header:after {
+    display: table;
+    content: " ";
+}
+.modal-header {background-color: #0890c4;color:white;}
+.modal-footer {
+    background-color: #f5f5f5;
+}
+
+.modifyHead
+{
+    text-align: right;
+}
+
+.modifyIcon
+{
+    cursor: pointer;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.modifyLineupFontSize
+{
+    font-size: 14px;
+}
+
+.MouseOverColor
+{
+    background-color: #2fa9dd;
+    border: 1px solid #999999;
+    color: #ffffff;
+    height: 27px;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+}
+
+.navbar-custom {
+    width:928px;
+  margin-bottom:0px;
+  background-color: #0088cc;
+  border-color: #0072ab;
+  border-bottom:0;
+  z-index: 5;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#00aaff), to(#0088cc));
+  background-image: -webkit-linear-gradient(top, #00aaff, 0%, #0088cc, 100%);
+  background-image: -moz-linear-gradient(top, #00aaff 0%, #0088cc 100%);
+  background-image: linear-gradient(to bottom, #00aaff 0%, #0088cc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00aaff', endColorstr='#ff0088cc', GradientType=0);
+}
+.navbar-custom .navbar-brand {
+  color: #ffffff;
+  border-bottom: 1px solid #0070a8;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: #e6e6e6;
+  background-color: transparent;
+  border-bottom: 1px solid #0070a8;
+}
+.navbar-custom .navbar-text {
+  color: #ffffff;
+}
+.navbar-custom .navbar-nav > li:last-child > a {
+  border-right: 1px solid #0072ab;
+}
+.navbar-custom .navbar-nav > li > a {
+  color: #f7f6f1;
+  border-left: 1px solid #0072ab;
+  border-bottom: 1px solid #0072ab;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+  color: #ffffff;
+  border-bottom: 1px solid #0072ab;
+  background-color: #0072ab;
+  /*background-color: transparent;*/
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#0094de), to(#0072ab));
+  background-image: -webkit-linear-gradient(top, #0094de, 0%, #0072ab, 100%);
+  background-image: -moz-linear-gradient(top, #0094de 0%, #0072ab 100%);
+  background-image: linear-gradient(to bottom, #0094de 0%, #0072ab 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0094de', endColorstr='#ff0072ab', GradientType=0);
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  font-weight:bold;
+  border-bottom: 1px solid #0094de;
+  background-color: #0094de;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#0072ab), to(#0094de));
+  background-image: -webkit-linear-gradient(top, #0072ab, 0%, #0094de, 100%);
+  background-image: -moz-linear-gradient(top, #0072ab 0%, #0094de 100%);
+  background-image: linear-gradient(to bottom, #0072ab 0%, #0094de 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0072ab', endColorstr='#ff0094de', GradientType=0);
+}
+.navbar-custom .navbar-nav > .disabled > a,
+.navbar-custom .navbar-nav > .disabled > a:hover,
+.navbar-custom .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-custom .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+  border-color: #0070a8;
+}
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+  background-color: #0072ab;
+  color: #ffffff;
+}
+.navbar-custom .navbar-nav > .open > a .caret,
+.navbar-custom .navbar-nav > .open > a:hover .caret,
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+@media (max-width: 767) {
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #0072ab;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+}
+.navbar-custom .navbar-link {
+  color: #ffffff;
+}
+.navbar-custom .navbar-link:hover {
+  color: #ffffff;
+}
+
+.newLinuepFontSize
+{
+    font-size: 50px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.normalColor
+{
+    background-color: #ffffff;
+    border-left: 1px solid #e5e6de;
+    border-right: 1px solid #e5e6de;
+    height: 27px;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+}
+
+.pageUnSelecetd
+{
+    float: right;
+    background-image: url('../img/pageBg.png');
+    height: 25px;
+    width: 25px;
+    margin-right: 2px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.pageSelecetd
+{
+    float: right;
+    background-image: url('../img/pageBgSelected.png');
+    height: 25px;
+    width: 25px;
+    margin-right: 2px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.positionAbsolute
+{
+    position: absolute;
+    left: 2px;
+    top: 55px;
+}
+
+.positionMenuText
+{
+    position: relative;
+    top: 10px;
+}
+
+.postCard
+{
+    float: left;
+    margin: 8px;
+}
+
+.postCardBg
+{
+    width: 447px;
+    height: 185px;
+    padding: 5px 3px 3px 9px;
+    background: url(../img/postCardBg.png) no-repeat;
+}
+
+.postCardContainer
+{
+    display:inline-block;
+    width:926px;
+    /*position: relative;
+    left: 6px;
+    top: 6px;
+    display:block;
+    height:99%;*/
+}
+
+.postCardHeaderIcons
+{
+    float: right;
+    margin-top: 8px;
+}
+
+.postCardHeaderText
+{
+    float: left;
+    margin-left: 12px;
+    margin-top: 8px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: white;
+}
+
+.postCardMiddleBg
+{
+    width: 212px;
+    height: 172px;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: #f7f6f1;
+    float: left;
+    margin-right: 5px;
+    border: 1px solid #e5e6de;
+    color: #333333;
+    font-size: 11px;
+}
+
+.postCardTop
+{
+    width: 445px;
+    height: 36px;
+    background: url('../img/postCardTop.png') no-repeat;
+}
+
+.removeIcon
+{
+    cursor: pointer;
+    padding-left: 40px;
+    text-align: left;
+}
+
+.RemoveOptionUser, .removeUserPopOver
+{
+    background-image: url('../img/removeBgLargeUser.png');
+    width: 920px;
+    height: 24px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    left: 3px;
+    color: white;
+}
+
+.removeCardPopOver
+{
+    background-image: url('../img/removeDialogBg.png');
+    width: 440px;
+    height: 30px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    left: 3px;
+    color: white;
+}
+
+.SavingText
+{
+    text-align: center;
+    font-size: 9px;
+    color: #666666;
+    font-weight: bold;
+    margin-left: -5px;
+}
+
+.scrollSettings
+{
+    position: relative;
+    left: 20px;
+    top: -25px;
+    height: 296px;
+    width: 775px;
+    overflow: auto;
+    overflow-x: hidden;
+    border: 1px solid #e5e6de;
+}
+
+.scrollSettings2
+{
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.setCursor
+{
+    cursor: pointer;
+}
+
+.stepsNormal
+{
+    float: left;
+    width: 140px;
+    height: 58px;
+    color: #5eb7e2;
+    font-family: 'Arial Black',sans-serif;
+    text-align: center;
+    background-image: url(../img/stepsNormalBg.png);
+    position: relative;
+     top: 2px;
+    cursor: pointer;
+}
+
+.slide-enter-setup, .slide-leave-setup {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.slide-enter-setup {
+    position:absolute;
+    left:0;
+    top:-200px;
+}
+
+.slide-enter-start {
+    top:0;
+}
+
+.slide-leave-setup {
+    position:absolute;
+    top:0;
+}
+
+.slide-leave-start {
+    top:200px;
+}
+
+.stepsSelected
+{
+    float: left;
+    width: 140px;
+    height: 58px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../img/stepsSelectedBG.png);
+    font-family: 'Arial Black',sans-serif;
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+}
+
+.stop-scrolling {
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+.TableHeader
+{
+    height: 27px;
+    background-color: #f7f6f1;
+    border: 1px solid #e5e6de;
+    color: #027db8;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+}
+
+.tableHeaderSetting
+{
+    position: relative;
+    left: 20px;
+    top: -25px;
+    width: 775px;
+    border-top: 1px solid #e5e6de;
+    border-left: 1px solid #e5e6de;
+    border-right: 1px solid #e5e6de;
+}
+
+.test
+{
+    padding-left: 27px;
+    text-align: left;
+    width: auto;
+}
+
+.textFloatLeft
+{
+    float: left;
+    margin-left: 20px;
+    color: #888787;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.textFloatRight
+{
+    float: right;
+    margin-right: 20px;
+    color: #888787;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.textInput
+{
+    position: relative;
+    left: 20px;
+    color: #888787;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+/*override bootstrap tooltip colors*/
+.tooltip-inner {background-color: #027db8; color: #fff;}
+
+.tooltip.top .tooltip-arrow { border-top-color: #027db8; }
+.tooltip.bottom .tooltip-arrow { border-bottom-color: #027db8; }
+.tooltip.left .tooltip-arrow { border-left-color: #027db8; }
+.tooltip.right .tooltip-arrow { border-right-color: #027db8; }
+
+.TotalbarsContainer
+{
+    padding-top: 10px;
+}
+
+.TotalChartsHeader
+{
+    color: #333333;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    top: -2px;
+}
+
+.TotalChartsHeader2
+{
+    color: #d9e9f4;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    top: -2px;
+}
+
+.TotalDarkGreyBar
+{
+    position: absolute;
+    width: 85px;
+    height: 16px;
+    background-color: #686f73;
+}
+
+.TotalLicenseValue
+{
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    top: -2px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+.warningTable
+{
+    position: relative;
+    width: 200px;
+}
+
+.wave-enter-setup, .wave-leave-setup {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.wave-enter-setup {
+    position:absolute;
+    left:-100%;
+}
+
+.wave-enter-start {
+    left:0;
+}
+
+.wave-leave-setup {
+    position:absolute;
+    left:0;
+}
+
+.wave-leave-start {
+    left:100%;
+}
+
+.wizardTable {
+    width:100%;
+    border-bottom: 1px solid #e5e6de;
+}
+
+.xButtonFontStyle
+{
+    position: relative;
+    right: 15px;
+    top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
+/*</editor-fold>*/

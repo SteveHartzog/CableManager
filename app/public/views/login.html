@@ -1,0 +1,19 @@
+﻿<div class="modal-dialog" style="width:400px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" ng-click="onCancel()" class="close close">&times;</button>
+            <h4 class="modal-title">Customer Login</h4>
+        </div>
+        <div class="modal-body">
+            <span class="inputStyles" style="width:100px;display:inline-block;">Email:&nbsp; </span>
+            <input class="text-box single-line inputStyles" size="31" id="UserName" ng-model="user.Name" autofocus />
+            <br />
+            <span class="inputStyles" style="width:100px;display:inline-block;">Password:&nbsp;&nbsp; </span>
+            <input class="text-box single-line inputStyles" size="31" id="Password" type="password" ng-model="user.Password" />
+            <div class="alert alert-danger" ng-show="isLoginError">You may have entered a wrong Email or password. Please try again.</div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="Login(user)" style="margin-bottom: 10px;">Login</button>
+        </div>
+    </div>
+</div>

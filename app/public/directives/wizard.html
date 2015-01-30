@@ -1,0 +1,38 @@
+<div ng-show="visible">
+    <div class="modal-backdrop fade in"></div>
+    <div style="top:150px;overflow:hidden;display: {{visible &amp;&amp; 'block' || 'none'}}" class="modal">
+        <div class="modal-dialog" ng-style="getDialogStyle()" >
+            <div class="modal-content" style="height:100%;">
+                <div class="modal-header" style="margin:0;padding:0;display:block;height:62px;background-image: url(/img/lightBoxLineMiddle.png);">
+                    <div ng-repeat="step in steps" ng-class="getStepClass(step.id)" ng-style="getStepStyle(step.id)" ng-click="setCurrentStep(step.id)">
+                            <span class="modifyLineupFontSize" ng-style="getStepTitleStyle(step)" ng-bind-html="wrapText(step.title)">{{ wrapText(step.title) }}</span>
+                    </div>
+                    <div style="margin-top:10px;margin-right:10px;height:62px;">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" ng-click="onCancel()" class="close close">&times;</button>
+                        <div class="lightBoxHeader pull-right">{{ wizardTitle }}</div>
+                    </div>
+                </div>
+                <div id="lightBoxMiddleContent">
+                    <div id="SectionHeader">{{ getHeaderText() }}</div>
+                    <!--<div id="lightBoxGroupErrorMessage" data-bind="text: lightBoxGroupErrorMessage ,style:{display: UserGroupShosen() ? '': 'none'}"></div>-->
+                    <div id="LightBoxSearch" ng-show="isSearchable()">
+                        <!--<input id="LightBoxSearchField" value="{{ searchModal }}" />-->
+                        <input id="searchField"
+                               type="text"
+                               ng-model="query"
+                               ng-change="search()"
+                               placeholder="{{ Search }}"
+                               class="input-large search-query"
+                                />
+                    </div>
+                </div>
+                <div ng-transclude="ng-transclude" class="modal-body" ng-style="getDialogBodyStyle()"></div>
+                <div class="modal-footer" style="position:relative;top:-15px;">
+                    <button type="button" ng-click="handleCancel()" class="btn btn-danger pull-left">Cancel</button>
+                    <button type="button" ng-click="handlePrevious()" class="btn" ng-disabled="isFirstStep()">Back</button>
+                    <button id="nextButton" type="button" ng-click="handleNext(dismiss)" ng-disabled="!isStepValid()"  class="btn btn-primary">{{getNextLabel()}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

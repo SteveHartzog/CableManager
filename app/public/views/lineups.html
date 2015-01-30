@@ -1,0 +1,163 @@
+﻿<div id="middleStrip">
+    <div id="AddButton">
+        <!--<a href="#" data-bind="click: OpenAddNewModal">-->
+        <!--<img src="../../Images/addButton.png" alt="addButton" /></a>-->
+        <button class="btn btn-success btn-mini small" style="padding:3px;padding-left:5px;padding-right:5px;margin-top:5px;" ng-click="openNewLineupWizard()">
+            <span style="padding:0;margin:0;font-size:8pt;font-weight:bold;">Add New</span>
+        </button>
+    </div>
+    <!--<div id="search" data-bind="style:{display: SearchEnable() ? '' : 'none'}">-->
+    <!--<input id="searchField" data-bind="value: Search, valueUpdate: 'afterkeyup'" />-->
+    <!--</div>-->
+</div>
+<article id="wrapper" ng-show="isLoaded">
+
+    <div class="postCardContainer">
+        <div ng-repeat="lineup in allLineups | orderBy:'LineupName'">
+            <card type="lineup"
+                  index="PostCard{{ $index }}"
+                  on-edit="openLineupWizard(lineup)"
+                  on-delete="openRemovePopOver('PostCard' + $index, lineup.LineupId)"
+                  data="lineup" />
+        </div>
+    </div>
+
+    <wizard id="lineupWizard" heading="{{ dialogTitle }}" width="820"
+            steps="steps"
+            class="modal"
+            visible="showLineupWizard"
+            on-cancel="hideLineupWizard()"
+            on-submit="saveLineup()"
+            ng-cloak>
+        <ng-switch on="getCurrentStep()" class="slide-frame">
+            <div ng-switch-when="Basic Info">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row form-inline pull-left" style="width:100%;">
+                            <div class="col-md-2 pull-left">
+                                <label>Viewing Area</label>
+                            </div>
+                            <div class="col-md-10 pull-left">
+                                <span class="uneditable-input" ng-show="!isNew">
+                                    {{ selectedLineup.ViewingArea }}
+                                </span>
+                                <span ng-show="isNew">
+                                    <label style="font-weight:normal;"><input id="viewingAreaPrivate" type="radio" ng-model="selectedLineup.ViewingArea" value="Private"> Private &nbsp;</label>
+                                    <label style="font-weight:normal;"><input id="viewingAreaPublic" type="radio" ng-model="selectedLineup.ViewingArea" value="Public"> Public &nbsp;</label>
+                                    <label style="font-weight:normal;"><input id="viewingAreaCommon" type="radio" ng-model="selectedLineup.ViewingArea" value="Common"> Common &nbsp;</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row form-inline pull-left" style="width:100%;">
+                            <div class="col-md-2 pull-left">
+                                <label>Packages</label>
+                            </div>
+                            <div class="col-md-10 pull-left" ng-show="!isNew">
+                                <span class="uneditable-input">
+                                    {{ selectedLineup.PackageText }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row form-inline pull-left" style="width:100%;" ng-show="isNew && showBasicPackages">
+                            <div class="col-md-2" style="padding-left:40px;">
+                                <label>1. Basic</label>
+                            </div>
+                            <div class="col-md-10 pull-left">
+                                <label ng-repeat="package in basicPackages" style="font-weight:normal;">
+                                    <input name="packageBasic" class="radio radio-inline" type="radio"
+                                       value="{{ package.PackageId }}"
+                                       ng-model="selectedLineup.basicPackageId" />
+                                        {{ package.PackageName }} &nbsp;
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row form-inline pull-left" style="width:100%;" ng-show="isNew && showCorePackages && corePackages.length > 0">
+                            <div class="col-md-2" style="padding-left:40px;">
+                                <label>2. Core</label>
+                            </div>
+                            <div class="col-md-10 pull-left">
+                                <label ng-repeat="package in corePackages" style="font-weight:normal;">
+                                    <input name="packageCore" class="radio radio-inline" type="radio"
+                                        value="{{ package.PackageId }}"
+                                        ng-model="selectedLineup.corePackageId" />
+                                        {{ package.PackageName }} &nbsp;
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row form-inline pull-left" style="width:100%;" ng-show="isNew && showAddOnPackages && addOnPackages.length > 0" style="font-weight:normal;">
+                            <div class="col-md-2" style="padding-left:40px;">
+                                <label>3. Add-On</label>
+                            </div>
+                            <div class="col-md-10 pull-left">
+                                <label class="checkbox-inline" ng-repeat="package in addOnPackages">
+                                    <input id="packageAddOn" class="checkbox" type="checkbox"
+                                        value="{{ package.PackageId }}"
+                                        ng-checked="isSelectedPackage(package.PackageId)"
+                                        ng-click="onClickAddOnCustomerPackage($event, package)" />
+                                        {{ package.PackageName }} &nbsp;
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12" ng-show="viewAreaIsEmpty()">{{ viewAreaNotSelectedMessages }}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="LineupName">Name</label>
+                            <input id="LineupName" class="form-control" type="text" style="background-color: rgb(255, 255, 255);" ng-model="selectedLineup.LineupName" />
+                            <div class="col-md-12" ng-show="viewAreaIsEmpty()">{{ viewAreaNotSelectedMessages }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description</label>
+                            <textarea id="Description" class="form-control" style="height: 100px;" ng-model="selectedLineup.Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="Add Channels">
+                <table id="tableChannel" class="wizardTable">
+                    <thead style="cursor: pointer;">
+                    <tr class="LightBoxTableHeader">
+                        <th class="Channel_ChannelName leftSpacing" ng-click="sortBy('Channel', 'Channel.ChannelName')">
+                            Name <i class="icon-sort" />
+                        <!--<th class="ServiceId leftSpacing" ng-click="sortBy('Channel', 'ServiceId')">-->
+                            <!--Package ID <i class="icon-sort" />-->
+                        <th class="PartOfPackageName leftSpacing" ng-click="sortBy('Channel', 'PartOfPackageName')">
+                            Package <i class="icon-sort" />
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="customerChannel in customerChannels | orderBy:sortOrder:reverse" ng-class-odd="'normalColor'" ng-class-even="'alternateColor'">
+                        <td class="leftSpacing">{{ customerChannel.Channel.ChannelName }}</td>
+                        <td class="leftSpacing">{{ getPackageName(customerChannel) }}</td>
+                        <td style="width: 25px;">
+                            <!--<img src="/img/pen.png" style="cursor: pointer;" alt="Pen" ng-click="openUserWizard(user)" data-toggle="modal" />-->
+                            <!--<img class="removeIcon" ng-click="OpenRemoveDialog('UserItems')" />-->
+                            <input type="checkbox" class="checkbox" ng-checked="isLineupChannel(customerChannel.Channel.ChannelId)" ng-click="addChannelToLineup(customerChannel, !isLineupChannel(customerChannel.Channel.ChannelId))" ng-show="!customerChannel.ExclamationShow" />
+                            <img src="/img/lightboxWarningSign.png" alt="Checkbox" ng-show="Channel.ExclamationShow" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ng-switch>
+    </wizard>
+
+    <div class="removeCardPopOver" id="RemovePopOver" ng-show="showRemovePopOver">
+        <div id="No" class="pull-right" ng-click="hideRemovePopOver()">
+            <img src="/img/No.png" alt="No" />
+        </div>
+        <div id="Yes" class="pull-right" ng-click="removeLineup()">
+            <img src="/img/Yes.png" alt="Yes" />
+        </div>
+        <div id="AreYouSureCard" class="pull-right">Are you sure?</div>
+    </div>
+    <span class="alert alert-info" style="position: relative; top:50px;" ng-show="!isLoaded">Loading data...</span>
+
+    <!--dialogs-->
+    <!--<div style="height: 70px;">-->
+    <!--<div id="NoSearchResult" ng-show="isEmptySearch">{{ lineupEmptyMessage }}</div>-->
+    <!--</div>-->
+</article>

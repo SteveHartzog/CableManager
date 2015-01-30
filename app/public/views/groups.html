@@ -1,0 +1,151 @@
+﻿<div id="middleStrip">
+    <div id="AddButton">
+        <button class="btn btn-success btn-mini small" style="padding:3px;padding-left:5px;padding-right:5px;margin-top:5px;" ng-click="openNewGroupWizard()">
+            <span style="padding:0;margin:0;font-size:8pt;font-weight:bold;">Add New</span>
+        </button>
+    </div>
+    <!--<div id="search" data-bind="style:{display: SearchEnable() ? '' : 'none'}">-->
+    <!--<input id="searchField" data-bind="value: Search, valueUpdate: 'afterkeyup'" />-->
+    <!--</div>-->
+</div>
+<div id="wrapper" ng-show="isLoaded">
+    <div class="postCardContainer">
+        <div ng-repeat="group in groups | orderBy:'GroupName'">
+            <card type="group" index="PostCard{{ $index }}"
+                  on-edit="openGroupWizard(group)"
+                  on-delete="openRemovePopOver('PostCard' + $index, group.GroupId)"
+                  data="group" />
+        </div>
+    </div>
+
+    <wizard id="groupWizard" heading="{{ dialogTitle }}" width="820"
+            steps="steps"
+            class="modal"
+            visible="showGroupWizard"
+            on-cancel="hideGroupWizard()"
+            on-submit="saveGroup()"
+            ng-cloak>
+        <ng-switch on="getCurrentStep()" class="slide-frame">
+            <div ng-switch-when="Group Info">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-inline">
+                            <span class="uneditable-input" ng-show="!isNew">
+                                <label>Viewing Area</label> &nbsp; &nbsp;
+                                {{ selectedGroup.ViewingArea }}
+                            </span>
+                            <div ng-show="isNew">
+                                <fieldset>
+                                    <legend>Viewing Area &nbsp; &nbsp;</legend>
+                                    <label><input type="radio" id="rbViewingArea1" ng-model="selectedGroup.ViewingArea" value="Private"> Private &nbsp; </label>
+                                    <label><input type="radio" id="rbViewingArea2" ng-model="selectedGroup.ViewingArea" value="Public"> Public &nbsp; </label>
+                                    <label><input type="radio" id="rbViewingArea3" ng-model="selectedGroup.ViewingArea" value="Common"> Common &nbsp; </label>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-12" ng-show="viewAreaIsEmpty()">{{ viewAreaNotSelectedMessages }}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="groupName">Name</label>
+                            <input class="form-control" id="groupName" type="text" style="background-color: rgb(255, 255, 255);" ng-model="selectedGroup.GroupName" />
+                            <div class="col-md-12" ng-show="viewAreaIsEmpty()">{{ viewAreaNotSelectedMessages }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" style="height: 100px;" ng-model="selectedGroup.Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="Subs">
+                <table id="tableUsers" class="wizardTable">
+                    <thead style="cursor: pointer;">
+                    <tr class="LightBoxTableHeader">
+                        <th class="FirstName leftSpacing" ng-click="sortBy('Users', 'FirstName')">
+                            First Name <i class="icon-sort" />
+                        </th>
+                        <th class="LastName leftSpacing" ng-click="sortBy('Users', 'LastName')">
+                            Last Name <i class="icon-sort" />
+                        </th>
+                        <th class="UserName leftSpacing" ng-click="sortBy('Users', 'UserName')">
+                            Username <i class="icon-sort" />
+                        </th>
+                        <th class="Email leftSpacing" ng-click="sortBy('Users', 'Email')">
+                            Email <i class="icon-sort" />
+                        </th>
+                        <th class="GroupName leftSpacing" ng-click="sortBy('Users', 'GroupName')">
+                            Group <i class="icon-sort" />
+                        </th>
+                        <th class="ViewingArea leftSpacing" ng-click="sortBy('Users', 'ViewingArea')">
+                            Viewing Area <i class="icon-sort" />
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="subscriber in filterByViewingArea(subscribers) | orderBy:sortOrder:reverse" ng-class-odd="'normalColor'" ng-class-even="'alternateColor'">
+                        <td class="leftSpacing">{{ subscriber.FirstName }}</td>
+                        <td class="leftSpacing">{{ subscriber.LastName }}</td>
+                        <td class="leftSpacing">{{ subscriber.UserName }}</td>
+                        <td class="leftSpacing">{{ subscriber.Email }}</td>
+                        <td class="leftSpacing">{{ subscriber.Group.GroupName }}</td>
+                        <td class="leftSpacing">{{ subscriber.ViewingArea }}</td>
+                        <td style="width: 25px;">
+                            <label><input type="checkbox" class="checkbox"  ng-checked="isGroupSubscriber(subscriber.SubscriberId)" ng-click="addSubscriberToGroup(subscriber, !isGroupSubscriber(subscriber.GroupId))" /></label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-switch-when="Lineups">
+                <table id="tableLineups" class="wizardTable">
+                    <thead style="cursor: pointer;">
+                    <tr class="LightBoxTableHeader">
+                        <th class="Name leftSpacing" ng-click="sortBy('Lineups', 'Name')">Name <i class="icon-sort" /></th>
+                        <th class="Description leftSpacing" ng-click="sortBy('Lineups', 'Description')">Description <i class="icon-sort" /></th>
+                        <th class="AvailableLicenses leftSpacing" ng-click="sortBy('Lineups', 'AvailableLicenses')">Available Licenses <i class="icon-sort" /></th>
+                        <th class="ViewingArea leftSpacing" ng-click="sortBy('Lineups', 'ViewingArea')">Viewing Area <i class="icon-sort" /></th>
+                        <th class="pull-right" style="cursor: pointer;">
+                            <div style="padding-right:10px;">All &nbsp; <input type="checkbox" class="checkbox checkbox-inline" ng-click="addAllLineupsToUser(!checkLineups)" /></div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="lineup in filterByViewingArea(lineups) | orderBy:sortOrder:reverse" ng-class-odd="'normalColor'" ng-class-even="'alternateColor'">
+                        <td class="leftSpacing">{{ lineup.LineupName }}</td>
+                        <td class="leftSpacing">{{ lineup.Description }}</td>
+                        <td class="leftSpacing">{{ getAvailableLicenses(lineup.Packages[0].LicenseInfo) }}</td>
+                        <td class="leftSpacing">{{ lineup.ViewingArea }}</td>
+                        <td style="width: 25px;" class="pull-right">
+                            <input type="checkbox" class="checkbox" ng-checked="isGroupLineup(lineup.LineupId)" ng-click="addLineupToGroup(lineup, !isGroupLineup(lineup.LineupId))" ng-show="!exclamationShow" />
+                            <img src="/img/lightboxWarningSign.png" alt="Checkbox" ng-show="exclamationShow" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ng-switch>
+    </wizard>
+
+    <div class="removeCardPopOver" id="RemovePopOver" ng-show="showRemovePopOver">
+        <div id="No" class="pull-right" ng-click="hideRemovePopOver()">
+            <img src="/img/No.png" alt="No" />
+        </div>
+        <div id="Yes" class="pull-right" ng-click="removeGroup()">
+            <img src="/img/Yes.png" alt="Yes" />
+        </div>
+        <div id="AreYouSureCard" class="pull-right">Are you sure?</div>
+    </div>
+    <span class="alert alert-info" style="position: relative; top:50px;" ng-show="!isLoaded">Loading data...</span>
+
+</div>
+<!--<div style="height: 70px;">-->
+<!--<div id="NoSearchResult" ng-show="isEmptySearch">{{ lineupEmptyMessage }}</div>-->
+<!--</div>-->
+
+
+
+

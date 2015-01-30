@@ -1,0 +1,72 @@
+﻿<div id="middleStrip">
+    <div id="search">
+        <input id="searchField"
+               type="text"
+               ng-model="query"
+               ng-change="search()"
+               placeholder="{{ Search }}"
+               class="input-large search-query"
+                />
+    </div>
+</div>
+<article id="wrapper" ng-show="isLoaded">
+    <div>
+        <!--<button class="btn btn-primary" ng-click="getChannelsByCustomer()">Test: Get Channels from CST/PI</button>-->
+        <table id="tableMain">
+            <thead style="cursor: pointer;">
+                <tr class="TableHeader">
+                    <th class="ChannelName leftSpacing" ng-click="sortBy('ChannelName')">
+                        Name <i class="icon-sort" />
+                    </th>
+                    <th class="ServiceId leftSpacing" ng-click="sortBy('ServiceId')">
+                        Service Id <i class="icon-sort" />
+                    </th>
+                    <th class="PartOfServiceName leftSpacing" ng-click="sortBy('PartOfServiceName')">
+                        Service <i class="icon-sort" />
+                    </th>
+                    <th class="IncludedLineups leftSpacing" ng-click="sortBy('IncludedLineups')">
+                        Included Lineups <i class="icon-sort" />
+                    </th>
+                    <th class="ConnectedToGroups leftSpacing" ng-click="sortBy('ConnectedToGroups')">
+                        Connected to Groups <i class="icon-sort" />
+                    </th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="channel in pagedChannels[currentPage] | orderBy:sortOrder:reverse">
+                <tr data-toggle="tooltip" title="{{ channel.ChannelItems }}"
+                    ng-class-odd="'normalColor'" ng-class-even="'alternateColor'">
+                    <td class="leftSpacing">{{ channel.ChannelName }}</td>
+                    <td class="leftSpacing">{{ channel.ServiceId }}</td>
+                    <td class="leftSpacing">{{ channel.PartOfServiceName }}</td>
+                    <td class="leftSpacing" rel="tooltip" data-placement="top" tooltip="channel.FullTextLineup">{{ channel.IncludedLineups }}</td>
+                    <td class="leftSpacing" rel="tooltip" data-placement="top" tooltip="channel.FullTextGroup">{{ channel.ConnectedToGroups }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <ul class="pagination pull-right">
+                            <li ng-class="{disabled: currentPage == 0}">
+                                <a href ng-click="prevPage()">« Prev</a>
+                            </li>
+                            <li
+                                ng-click="setPage()"
+                                ng-class="{active: n == currentPage}"
+                                ng-repeat="n in range(pagedChannels.length)"
+                                >
+                                <a href ng-bind="n + 1">1</a>
+                            </li>
+                            <li ng-class="{disabled: currentPage == pagedChannels.length - 1}">
+                                <a href ng-click="nextPage()">Next »</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div style="height: 70px;">
+        <div id="NoSearchResult" ng-show="!pagedChannels">Your search didn't match any Channel.</div>
+    </div>
+</article>
+<span class="alert alert-info" style="position: relative; top:50px;" ng-show="!isLoaded">Loading data...</span>

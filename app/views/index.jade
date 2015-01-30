@@ -1,0 +1,32 @@
+﻿doctype html
+html(lang='eng')
+    head
+
+        | <!--[if lte IE 8]>
+        script.
+            document.createElement('ng-include');
+            document.createElement('ng-pluralize');
+            document.createElement('ng-view');
+
+            // Optionally these for CSS
+            document.createElement('ng:include');
+            document.createElement('ng:pluralize');
+            document.createElement('ng:view');
+        <![endif]-->
+
+        title Cable Manager
+        meta(name="viewport", content="width=device-width, height=device-height, initial-scale=1.0")
+        link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/bower_components/font-awesome/css/font-awesome.min.css")
+        link(rel="stylesheet", href="/bower_components/toastr/toastr.min.css")
+        link(rel="stylesheet", href="/css/styles.css")
+        script(src="/bower_components/requirejs/require.js", data-main="main")
+
+    body(ng-controller="app", ng-cloak)
+        div#mainContainer
+            div(ng-include="'/views/header.html'")
+            div#MainView(ng-view)
+            div#Footer
+                span Cable Manager 2014 &copy;
+
+

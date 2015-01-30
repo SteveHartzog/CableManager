@@ -1,0 +1,28 @@
+<div class="modal-backdrop fade in"></div>
+<div class="modal">
+    <div class="modal-dialog" style="margin-top:100px;width:400px;">
+        <div class="modal-content">
+            <form name="form" novalidate class="login-form">
+                <div class="modal-header">
+                    <h4>Customer Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">Please enter your login credentials</div>
+                    <label class="inputStyles" style="width:100px;display:inline-block;">E-mail</label> <!--type="email"-->
+                    <input class="text-box single-line inputStyles" size="31" name="login" type="text" ng-model="user.email" required autofocus>
+                    <br />
+                    <label class="inputStyles" style="width:100px;display:inline-block;">Password</label>
+                    <input class="text-box single-line inputStyles" size="31" name="pass" type="password" ng-model="user.password" required>
+                    <div class="alert alert-error" ng-show="authError">
+                        {{authError}}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary login" ng-click="login()" ng-disabled='form.$invalid'>Login</button>
+                    <!--<button class="btn clear" ng-click="clearForm()">Clear</button>-->
+                    <!--<button class="btn btn-warning cancel" ng-click="cancelLogin()">Cancel</button>-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

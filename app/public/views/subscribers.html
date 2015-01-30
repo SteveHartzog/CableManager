@@ -1,0 +1,210 @@
+﻿<div id="middleStrip">
+    <div id="AddButton">
+        <!--<a href="#" data-bind="click: OpenAddNewModal">-->
+        <!--<img src="/app/img/addButton.png" alt="addButton" /></a>-->
+        <button class="btn btn-success btn-mini small" style="padding:3px;padding-left:5px;padding-right:5px;margin-top:5px;" ng-click="openNewSubscriberWizard()">
+            <span style="padding:0;margin:0;font-size:8pt;font-weight:bold;">Add New</span>
+        </button>
+    </div>
+    <div id="search">
+        <input id="searchField"
+               type="text"
+               ng-model="query"
+               ng-change="search()"
+               placeholder="{{ Search }}"
+               class="input-large search-query"
+                />
+    </div>
+</div>
+<article id="wrapper" ng-show="isLoaded">
+    <table id="tableMain">
+        <thead style="cursor: pointer;">
+            <tr class="TableHeader">
+                <th class="FirstName leftSpacing" ng-click="sortBy('FirstName')">
+                    First Name <i class="icon-sort" />
+                </th>
+                <th class="LastName leftSpacing" ng-click="sortBy('LastName')">
+                    Last Name <i class="icon-sort" />
+                </th>
+                <th class="UserName leftSpacing" ng-click="sortBy('UserName')">
+                    Username <i class="icon-sort" />
+                </th>
+                <th class="Email leftSpacing" ng-click="sortBy('Email')">
+                    Email <i class="icon-sort" />
+                </th>
+                <th class="GroupName leftSpacing" ng-click="sortBy('GroupName')">
+                    Group <i class="icon-sort" />
+                </th>
+                <th class="LineupShort leftSpacing" ng-click="sortBy('LineupShort')">
+                    Lineups <i class="icon-sort" />
+                </th>
+                <th class="ViewingArea leftSpacing" ng-click="sortBy('ViewingArea')">
+                    Viewing Area <i class="icon-sort" />
+                </th>
+                <th style="width: 25px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="UserItems{{ $index }}" ng-repeat="subscriber in pagedUsers[currentPage] | orderBy:sortOrder:reverse" ng-class-odd="'normalColor'" ng-class-even="'alternateColor'">
+                <td class="leftSpacing">{{ subscriber.FirstName }}</td>
+                <td class="leftSpacing">{{ subscriber.LastName }}</td>
+                <td class="leftSpacing">{{ subscriber.UserName }}</td>
+                <td class="leftSpacing">{{ subscriber.Email }}</td>
+                <td class="leftSpacing">{{ subscriber.Group.GroupName }}</td>
+                <td class="leftSpacing setCursor" rel="tooltip" data-placement="top" tooltip="getLineupNames(subscriber.Lineups, 'long')">{{ getLineupNames(subscriber.Lineups, 'short') }}</td>
+                <td class="leftSpacing">{{ subscriber.ViewingArea }}</td>
+                <td style="width: 50px;">
+                    <span class="icon-pencil icon-large" style="cursor: pointer;" ng-click="openSubscriberWizard(subscriber)"></span>&nbsp;
+                    <span class="icon-trash icon-large" style="cursor: pointer;" ng-click="openRemovePopOver($index, subscriber.SubscriberId)" />
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="8">
+                <ul class="pagination pull-right">
+                    <li ng-class="{disabled: currentPage == 0}">
+                        <a href ng-click="prevPage()">« Prev</a>
+                    </li>
+                    <li
+                            ng-click="setPage()"
+                            ng-class="{active: n == currentPage}"
+                            ng-repeat="n in range(pagedUsers.length)"
+                            >
+                        <a href ng-bind="n + 1">1</a>
+                    </li>
+                    <li ng-class="{disabled: currentPage == pagedUsers.length - 1}">
+                        <a href ng-click="nextPage()">Next »</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <div id="NoSearchResult" ng-show="!pagedUsers">Your search didn't match any subscriber.</div>
+
+    <wizard id="userWizard" heading="{{ dialogTitle }}" width="850" height="630"
+        steps="steps"
+        viewAreaArray="viewAreaArray"
+        lineupArray="lineupArray"
+        visible="showSubscriberWizard"
+        on-cancel="hideSubscriberWizard()"
+        on-submit="saveSubscriber()"
+        ng-cloak>
+        <ng-switch on="getCurrentStep()" ng-animate="'wave'" class="slide-frame" style="height:100%;">
+            <div ng-switch-when="Subscriber Info">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-inline">
+                            <span class="uneditable-input" ng-show="!isNew">
+                                <label>Viewing Area</label> &nbsp; &nbsp;
+                                {{ selectedSubscriber.ViewingArea }}
+                            </span>
+                            <div ng-show="isNew">
+                                <label>Viewing Area</label> &nbsp; &nbsp;
+                                <input type="radio" ng-model="selectedSubscriber.ViewingArea" value="Private"> Private &nbsp;
+                                <input type="radio" ng-model="selectedSubscriber.ViewingArea" value="Public"> Public &nbsp;
+                                <input type="radio" ng-model="selectedSubscriber.ViewingArea" value="Common"> Common &nbsp;
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="col-md-12" ng-show="viewAreaIsEmpty()">{{ viewAreaNotSelectedMessages }}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" ng-model="$parent.selectedSubscriber.FirstName" />
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" ng-model="$parent.selectedSubscriber.LastName"  />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Username <span style="color: red; font-size: 14px;">&nbsp;*</span></label>
+                                <input type="text" class="form-control" ng-model="selectedSubscriber.UserName" />
+                                <!--<div class="errorMessageStyle" ng-show="UsernameExist">{{ userAlreadyExistErrorMessage }}</div>-->
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address <span style="color: red; font-size: 14px;">&nbsp;*</span></label>
+                                <input type="text" class="form-control" ng-model="selectedSubscriber.Email" />
+                                <!--<div class="errorMessageStyle" ng-show="EmailExists()">{{ emailErrorText }}</div>-->
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Password <span style="color: red; font-size: 14px;">&nbsp;*</span></label>
+                                <input type="text" class="form-control" ng-model="$parent.selectedSubscriber.Password" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="Group Info">
+                <table id="tableGroupInfo" class="wizardTable">
+                    <thead>
+                    <tr class="LightBoxTableHeader">
+                        <th class="leftSpacing">Name</th>
+                        <th class="leftSpacing">Description</th>
+                        <th class="leftSpacing">Viewing Area</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="group in filterByViewingArea(groups) | orderBy:GroupName" ng-class-odd="'normalColor'" ng-class-even="'alternateColor'">
+                        <td class="leftSpacing">{{ group.GroupName }}</td>
+                        <td class="leftSpacing">{{ group.Description }}</td>
+                        <td class="leftSpacing">{{ group.ViewingArea }}</td>
+                        <td style="width: 25px;">
+                            <input type="checkbox" class="checkbox" ng-checked="selectedSubscriber.Group.GroupId == group.GroupId" ng-click="addGroupToSubscriber(group)" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-switch-when="Lineup Info">
+                <table id="tableLineupInfo" class="wizardTable">
+                    <thead>
+                    <tr class="LightBoxTableHeader">
+                        <th class="leftSpacing">Name</th>
+                        <th class="leftSpacing">Description</th>
+                        <th class="leftSpacing">Available Licenses</th>
+                        <th class="leftSpacing">Viewing Area</th>
+                        <th class="pull-right" style="cursor: pointer;">
+                            <div style="padding-right:10px;">All &nbsp; <input type="checkbox" class="checkbox checkbox-inline" ng-click="addAllLineupsToUser(!checkLineups)" /></div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="lineup in filterByViewingArea(lineups) | orderBy:LineupName" ng-class-odd="'normalColor'" ng-class-even="'alternateColor'">
+                        <td class="leftSpacing">{{ lineup.LineupName }}</td>
+                        <td class="leftSpacing">{{ lineup.Description }}</td>
+                        <td class="leftSpacing">{{ getAvailableLicenses(lineup.Packages[0].LicenseInfo) }}</td>
+                        <td class="leftSpacing">{{ lineup.ViewingArea }}</td>
+                        <td style="width: 25px;" class="pull-right">
+                            <input type="checkbox" class="checkbox" ng-checked="isSubscriberLineup(lineup)" ng-click="addLineupToSubscriber(lineup, !isSubscriberLineup(lineup))" ng-show="!exclamationShow" />
+                            <img src="/img/lightboxWarningSign.png" alt="Checkbox" ng-show="exclamationShow" rel="tooltip" data-placement="top" tooltip="lineupWarning(lineup)" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ng-switch>
+    </wizard>
+
+    <div class="removeUserPopOver" id="RemovePopOver" ng-show="showRemovePopOver">
+        <div id="NoUser" class="pull-right" ng-click="hideRemovePopOver()">
+            <img src="/img/No.png" alt="No" />
+        </div>
+        <div id="YesUser" class="pull-right" ng-click="removeSubscriber()">
+            <img src="/img/Yes.png" alt="Yes" />
+        </div>
+        <div id="AreYouSureRow" class="pull-right">Are you sure?</div>
+    </div>
+</article>

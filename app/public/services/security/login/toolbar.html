@@ -1,0 +1,13 @@
+<div id="LoginToolbar" class="pull-right">
+    <li class="loginText dropdown loginDropdown">
+        <span class="loginLabel">Signed in as</span>
+        <a class="dropdown-toggle">{{ currentUser.Username }}</a>
+        <ul class="loginPopover dropdown-menu pull-right">
+            <div class="pull-right">{{ currentUser.FirstName }} {{ currentUser.LastName }}</div>
+            <div style="padding-top:30px;">
+                <a class="setCursor" style="position:relative;top:5px;left:60px;font-size:10pt;" class="pull-right" ng-click="ShowAccountSettingsModal()">Account Settings</a>
+                <button class="btn btn-sm btn-primary pull-right" alt="Log out" ng-click="logout()">Log Out</button>
+            </div>
+        </ul>
+    </li>
+</div>

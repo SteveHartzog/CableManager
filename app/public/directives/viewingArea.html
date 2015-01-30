@@ -1,0 +1,80 @@
+﻿<div>
+    <div style="height: 7px;"></div>
+    <div class="chartColorExplanation">
+        <div style="float: left;">
+            <div style="float: left;">Available</div>
+            <div style="float: left; margin-left: 5px; width: 44px; height: 9px; background-color: #0890c4; position: relative; top: 6px;"></div>
+        </div>
+        <div style="float: left; margin-left: 10px;">
+            <div style="float: left;">Assigned</div>
+            <div style="float: left; margin-left: 5px; width: 44px; height: 9px; background-color: #a2abaa; position: relative; top: 6px;"></div>
+        </div>
+    </div>
+    <div class="chartViewingArea">{{ type }} - Viewing Area</div>
+    <div ng-repeat="package in packages">
+        <div class="chartsContainer">
+            <div class="chartsBgContainer">
+                <div class="chartsBg">
+                    <div class="barsContainer">
+                        <div class="chartsHeader">{{ package.PackageName }}</div>
+                        <div class="greyBar" ng-show="!package.UnlimitedLicenses">
+                            <div class="licenseValue">{{ package.LicenseInfo.LicensesIssued }}</div>
+                        </div>
+                        <div class="blueBar" ng-show="!package.UnlimitedLicenses" ng-style="getPercentageUsed(package.LicenseInfo, 748)">
+                            <div class="licenseValue">{{ package.LicenseInfo.TotalLicenses - package.LicenseInfo.UsedLicenses }}</div>
+                        </div>
+                        <div class="darkGreyBar" ng-show="package.UnlimitedLicenses">
+                            <div class="licenseValue">{{ package.LicenseInfo.TotalLicenses }}</div>
+                        </div>
+                    </div>
+                    <div style="height: 10px;"></div>
+                    <div ng-repeat="child in package.Children">
+                        <div class="ChildBarsContainer">
+                        <div class="chartsHeader">{{ child.PackageName }}</div>
+                            <div class="ChildGreyBar" ng-show="!child.UnlimitedLicenses">
+                            <div class="licenseValue">{{ child.LicenseInfo.LicensesIssued }}</div>
+                            </div>
+                            <div class="ChildBlueBar" ng-show="!child.UnlimitedLicenses" ng-style="getPercentageUsed(child.LicenseInfo, 657)">
+                                <div class="licenseValue">{{ child.LicenseInfo.TotalLicenses - package.LicenseInfo.UsedLicenses }}</div>
+                            </div>
+                            <div class="ChildDarkGreyBar" ng-show="child.UnlimitedLicenses">
+                                <div class="licenseValue">{{ child.LicenseInfo.TotalLicenses }}</div>
+                            </div>
+                        </div>
+                        <div style="height: 10px;"></div>
+                    </div>
+                    <br class="clear" />
+                </div>
+                <div class="chartsBottom"></div>
+            </div>
+            <div class="chartsBgSmallContainer">
+                <div class="chartsSmallBg">
+                    <div class="TotalbarsContainer">
+                        <div class="TotalChartsHeader" ng-style="{ 'color': package.LicenseTotalChartColor }">Total</div>
+                        <div class="TotalDarkGreyBar">
+                            <div class="TotalLicenseValue">
+                                <div ng-show="!package.LicenseInfo.UnlimitedLicenses">{{ package.LicenseInfo.TotalLicenses }}</div>
+                                <div ng-show="package.LicenseInfo.UnlimitedLicenses" style="font-size: 10px;"><img src="/img/unlimitedSign.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 10px;"></div>
+                    <div ng-repeat="item in package.Children">
+                        <div class="TotalbarsContainer">
+                            <div class="TotalChartsHeader2">Total</div>
+                            <div class="TotalDarkGreyBar">
+                                <div class="TotalLicenseValue">
+                                    <div ng-show="!item.LicenseInfo.UnlimitedLicenses">{{ item.LicenseInfo.TotalLicenses }}</div>
+                                    <div style="font-size: 10px" ng-show="item.LicenseInfo.UnlimitedLicenses"><img src="/img/unlimitedSign.png" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height: 10px;"></div>
+                    </div>
+                    <br class="clear" />
+                </div>
+                <div class="chartsSmallBottom"></div>
+            </div>
+        </div>
+    </div>
+</div>

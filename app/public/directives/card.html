@@ -1,0 +1,61 @@
+<div id="{{ index }}" class="postCard">
+    <div class="postCardTop">
+        <div class="postCardHeaderText" >{{ data.Title }}</div>
+        <div class="postCardHeaderIcons">
+            <div class="iconStyle" ng-click="onEdit()">
+                <img src="/img/penWhite.png" alt="Pen" />
+            </div>
+            <div class="iconStyle" ng-click="onDelete()">
+                <img src="/img/trash2White.png" alt="Trash" />
+            </div>
+        </div>
+    </div>
+    <div class="postCardBg">
+        <div class="postCardMiddleBg">
+            <table style="width: 200px; position: relative; margin: 0px 5px 5px 5px;">
+                <thead>
+                <tr>
+                    <th style="font-weight:bold;">{{ leftColTitle1 }}</th>
+                    <th style="font-weight:bold;float:right;">Available</th>
+                </tr>
+                </thead>
+                <tbody ng-if="isType('lineup')" ng-repeat="package in data.Packages">
+                <tr>
+                    <td>{{ package.PackageName }}</td>
+                    <td style="float: right;">{{ package.LicenseInfo.TotalLicenses - package.LicenseInfo.UsedLicenses }}</td>
+                </tr>
+                </tbody>
+                <tbody ng-if="isType('group')" ng-repeat="lineup in data.Lineups">
+                <tr>
+                    <td>{{ lineup.LineupName }}</td>
+                    <td style="float: right;">{{ getAvailableLicenses(lineup.Packages) }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="postCardMiddleBg" ng-style="getMiddleStyle()">
+            <table style="width: 198px; position: relative; margin: 0px 5px 5px 5px;">
+                <thead>
+                <tr>
+                    <th style="font-weight:bold;">{{ rightTitleCol1 }}</th>
+                    <th style="font-weight:bold;float:right;">{{ rightTitleCol2 }}</th>
+                </tr>
+                </thead>
+                <tbody ng-if="isType('lineup')" ng-repeat="group in data.Groups">
+                <tr>
+                    <td>{{ group.GroupName }}</td>
+                    <td style="float: right;">{{ group.NumberOfSubscribers }}</td>
+                </tr>
+                </tbody>
+                <tbody ng-if="isType('group')" ng-repeat="group in data.LightGroups">
+                <tr>
+                    <td>{{ group.GroupName }}</td>
+                    <td style="float: right;">{{ group.NumberOfSubscribers }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div style="border-bottom: 1px solid black; width: 202px; position: relative; left: 3px;"></div>
+            <div style="text-align:right;padding-right:9px;" ng-show="showTotal()">{{ totalUsers() }}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div id="MainMenuContainer" ng-controller="header">
+    <div id="LoginMainContainer">
+        <login-toolbar></login-toolbar>
+    </div>
+    <nav class="navbar navbar-custom" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="margin:0px;padding:0px;"><img ng-src="{{ brandImage() }}" style="margin:0px;padding:0px;" height="50px" alt="logo" /></a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: isNavbarActive('Dashboard')}" style="color:white;"><a href="/Dashboard">DASHBOARD</a></li>
+                <li ng-class="{active: isNavbarActive('Lineups')}"><a href="/Lineups">LINEUPS</a></li>
+                <li ng-class="{active: isNavbarActive('Subscribers')}"><a href="/Subscribers">SUBSCRIBERS</a></li>
+                <li ng-class="{active: isNavbarActive('Groups')}"><a href="/Groups">GROUPS</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Account Setting Modal-->
+    <dialog id="accountSettingsModal" title="Account Settings" ok="Save" visible="showAccountSettings" on-cancel="hideAccountSettings()" on-ok="saveAccountSettings()" ng-cloak style="display:none;">
+        <div id="ErrorMessageAccountSetting">{{ accountSettings.ErrorMessage }}</div>
+        <span class="inputStyles" style="width:200px;display:inline-block;">TWC Customer GUID</span>{{ accountSettings.ParentCustomerId }}
+        <br/>
+        <span class="inputStyles" style="width:200px;display:inline-block;">Email</span>
+        <input class="text-box single-line inputStyles" size="30" type="text" value="{{ accountSettings.Username }}" />
+        <br/>
+        <span class="inputStyles" style="width:200px;display:inline-block;">Old Password</span>
+        <input class="text-box single-line inputStyles" size="30" type="password" value="{{ accountSettings.OldPassword}}" />
+        <br/>
+        <span class="inputStyles" style="width:200px;display:inline-block;">New Password</span>
+        <input class="text-box single-line inputStyles" size="30" type="password" value="{{ accountSettings.NewPassword}} " />
+        <br/>
+        <span class="inputStyles" style="width:200px;display:inline-block;">Repeat New Password</span>
+        <input class="text-box single-line inputStyles" size="30" type="password" value="{{ accountSettings.NewPasswordRepeat }}" />
+    </dialog>
+</div>
