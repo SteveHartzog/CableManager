@@ -84,10 +84,10 @@ define('app', ['angular', 'security', 'config', 'routingConfig'
             $scope.currentUser = security.requestCurrentUser();
             $scope.brandImage = function() {
                 switch ($scope.currentUser.CustomerGuid) {
-                    case 'Wake Forest University':
-                        return '/img/Wake_Forest_University_Logo.svg';
+                    case 'Acme Building Management Company':
+                        return '/img/acme.png';
                     default:
-                        return '/img/Wake_Forest_University_Logo.svg'; //'/img/brand.jpg';
+                        return '/img/acme.png'; //'/img/brand.jpg';
                 }
             };
             $scope.saveAccountSettings = function () {
