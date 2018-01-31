@@ -15,7 +15,7 @@ var currentDate = new Date();
 var day = currentDate.getDate();
 var month = currentDate.getMonth() + 1;
 var year = currentDate.getFullYear();
-var logFileName = "c:\\logs\\twc\\customer.web-" + year + "." + month + "." + day + ".log";
+var logFileName = path.join(__dirname, "CableManager-" + year + "." + month + "." + day + ".log");
 var logFile = fs.createWriteStream(logFileName);var baseDirectory = __dirname.replace('server', '');
 var index = __dirname + "/index.html";
 function replaceAll(str, find, replace) {

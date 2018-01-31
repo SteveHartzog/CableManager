@@ -7,13 +7,13 @@ require.config({
     optimize: "uglify",
     paths: {
         // libraries & frameworks
-        'jQuery'                : './bower_components/jquery/jquery.min',
+        'jQuery'                : './bower_components/jquery/jquery',
         'angular'               : './bower_components/angular/angular.min',
 //        'angular-ui'            : './libs/angular-ui/build/angular-ui.min',
 //        'angular-bootstrap'     : './libs/angular-bootstrap/ui-bootstrap.min',
         // 'angular-animate'       : './libs/angular/angular-animate',
         'angular-route'         : './bower_components/angular-route/angular-route.min',
-        'angular-resource'      : './bower_components/angular-resource/angular-resource',
+        'angular-resource'      : './bower_components/angular-resource/angular-resource.min',
         'angular-sanitize'      : './bower_components/angular-sanitize/angular-sanitize.min',
         'amplify'               : './bower_components/amplify/lib/amplify.min',
         'amplify.store'         : './bower_components/amplify/lib/amplify.store.min',

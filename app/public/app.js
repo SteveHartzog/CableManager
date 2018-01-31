@@ -1,7 +1,6 @@
-﻿//TODO: Add lazy loading controllers
-define('app', ['angular', 'security', 'config', 'routingConfig'
+﻿define('app', ['angular', 'security', 'config', 'routingConfig'
     , 'customRouteProvider', 'angular-resource', 'angular-route', 'bootstrap', 'services/services', 'directives'
-    , 'controllers/dashboard' // TODO: Dynamically load controllers
+    , 'controllers/dashboard'
     , 'controllers/lineups'
     , 'controllers/groups'
     , 'controllers/subscribers'

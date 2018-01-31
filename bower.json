@@ -1,12 +1,11 @@
 {
-  "name": "Customer.Web",
+  "name": "CableManager",
   "main": "main.js",
   "version": "0.0.6",
-  "homepage": "https://github.com/mpsamerica/TwcTvEnterprise",
   "authors": [
-    "Steve Hartzog <steve.hartzog@mpsbroadband.com>"
+    "Steve Hartzog"
   ],
-  "description": "Time Warner Cable Customer Portal",
+  "description": "Demo of CableManager design",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -17,14 +16,16 @@
     "bower_components"
   ],
   "dependencies": {
-    "font-awesome": "~3.2.1",
+    "font-awesome": "3.2.1",
     "javascript-debug": "*",
-    "amplify": "~1.1.2",
-    "angular": "1.2.0",
-    "bootstrap": "~3.0.0",
-    "lodash": "~2.2.1",
-    "requirejs": "~2.1.8",
-    "toastr": "~2.0.1",
-    "momentjs": "~2.2.1"
+    "amplify": "1.1.2",
+    "angular": "1.2.28",
+    "bootstrap": "3.0.0",
+    "lodash": "2.2.1",
+    "requirejs": "2.1.8",
+    "toastr": "2.0.1",
+    "momentjs": "2.2.1",
+    "angular-resource": "1.2.28",
+    "angular-route": "1.2.28"
   }
 }
